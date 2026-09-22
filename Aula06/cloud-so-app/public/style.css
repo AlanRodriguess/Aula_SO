@@ -1,3 +1,4 @@
+```css
 * {
     box-sizing: border-box;
     margin: 0;
@@ -38,6 +39,8 @@ h1 {
     padding: 25px;
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    min-width: 0;
+    overflow: hidden;
 }
 
 .card h2 {
@@ -48,4 +51,7 @@ h1 {
 .card p {
     font-size: 22px;
     font-weight: bold;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
+```
