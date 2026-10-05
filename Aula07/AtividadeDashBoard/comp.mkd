@@ -1,0 +1,475 @@
+Relatório Comparativo — Render e Railway
+1. Introdução
+
+O objetivo desta atividade foi ampliar uma aplicação desenvolvida com Node.js e Express, transformando-a em um dashboard de monitoramento de sistema operacional.
+
+A aplicação apresenta informações relacionadas ao hardware, sistema operacional, memória RAM, processador, rede, arquivos do projeto, processos e ambiente de execução.
+
+Após o desenvolvimento da aplicação, foi realizado o deploy em duas plataformas de computação em nuvem: Render e Railway.
+
+O objetivo foi analisar as características de cada plataforma e observar as diferenças entre a execução local e a execução em servidores remotos.
+
+2. Tecnologias utilizadas
+
+O projeto foi desenvolvido utilizando as seguintes tecnologias:
+
+Node.js
+
+Express
+
+JavaScript
+
+HTML
+
+CSS
+
+Git
+
+GitHub
+
+Render
+
+Railway
+
+3. Aplicação desenvolvida
+
+A aplicação foi desenvolvida utilizando Node.js e Express.
+
+O dashboard apresenta informações do ambiente computacional em tempo real, incluindo:
+
+Percentual de utilização da memória RAM;
+
+Utilização média da CPU;
+
+Utilização individual dos núcleos do processador;
+
+Quantidade de CPUs;
+
+Modelo do processador;
+
+Load Average;
+
+Uptime do sistema;
+
+Quantidade de arquivos do projeto;
+
+Endereço IP principal;
+
+Interfaces de rede;
+
+Hostname;
+
+Sistema operacional;
+
+Versão do kernel;
+
+Arquitetura do processador;
+
+Endianness;
+
+Versão do Node.js;
+
+Informações do processo Node.js;
+
+Memória utilizada pela aplicação;
+
+Porta utilizada;
+
+Variáveis de ambiente relevantes;
+
+Identificação do ambiente local ou cloud.
+
+O dashboard também possui atualização automática a cada cinco segundos, permitindo acompanhar alterações nos indicadores do sistema.
+
+4. Execução local
+
+Inicialmente, a aplicação foi executada localmente utilizando o Node.js.
+
+O servidor foi iniciado através do comando:
+
+node server.js
+
+
+Após a inicialização, a aplicação ficou disponível localmente através da porta configurada no projeto.
+
+Por padrão:
+
+http://localhost:3000
+
+
+Na execução local, as informações apresentadas pelo dashboard correspondem ao computador utilizado para executar a aplicação.
+
+Dessa forma, dados como:
+
+hostname;
+
+quantidade de memória;
+
+processadores;
+
+interfaces de rede;
+
+sistema operacional;
+
+arquitetura;
+
+representam diretamente o ambiente local.
+
+Evidência da execução local
+
+Inserir aqui um print do dashboard funcionando localmente.
+
+5. Deploy no Render
+
+O primeiro ambiente de computação em nuvem utilizado foi o Render.
+
+O projeto foi conectado ao repositório do GitHub e o Render realizou a instalação das dependências e a inicialização da aplicação Node.js.
+
+Após o deploy, a aplicação passou a ser acessível através de uma URL pública.
+
+No ambiente do Render, o dashboard identificou que a aplicação estava sendo executada em um ambiente cloud.
+
+Uma diferença importante em relação à execução local foi que as informações apresentadas pelo módulo os passaram a representar o servidor disponibilizado pelo Render, e não mais o computador utilizado durante o desenvolvimento.
+
+Isso demonstra que a aplicação Node.js consegue obter informações diretamente do sistema operacional onde está sendo executada.
+
+URL do Render
+COLE_AQUI_A_URL_DO_SEU_RENDER
+
+Evidência do deploy no Render
+
+Inserir aqui um print do dashboard funcionando no Render.
+
+6. Deploy no Railway
+
+A segunda plataforma utilizada foi o Railway.
+
+Assim como no Render, o projeto foi conectado ao GitHub e a plataforma realizou o processo de implantação da aplicação.
+
+O Railway disponibilizou um ambiente remoto para execução do servidor Node.js e forneceu uma URL pública para acesso ao dashboard.
+
+A aplicação conseguiu utilizar a porta fornecida pela plataforma através da variável de ambiente:
+
+process.env.PORT
+
+
+O dashboard também identificou o ambiente como cloud e apresentou informações relacionadas ao servidor remoto.
+
+URL do Railway
+COLE_AQUI_A_URL_DO_SEU_RAILWAY
+
+Evidência do deploy no Railway
+
+Inserir aqui um print do dashboard funcionando no Railway.
+
+7. Comparação entre Render e Railway
+
+Render e Railway possuem propostas semelhantes.
+
+Ambas são plataformas de computação em nuvem que permitem hospedar aplicações web e disponibilizar serviços através da internet.
+
+As duas plataformas possuem integração com repositórios Git, permitindo que alterações no código sejam utilizadas para realizar novas implantações.
+
+Uma das principais diferenças percebidas está na interface e na forma como cada plataforma organiza os recursos do projeto.
+
+O Render apresenta uma interface bastante voltada para a criação e gerenciamento de serviços web, sendo uma opção simples para projetos acadêmicos e aplicações Node.js.
+
+O Railway apresenta uma abordagem bastante integrada de projeto e infraestrutura, permitindo visualizar recursos e serviços de forma centralizada.
+
+Outra diferença está na experiência de configuração. O Railway possui uma interface bastante orientada para projetos e serviços, enquanto o Render apresenta uma estrutura mais tradicional de criação de serviços.
+
+Apesar dessas diferenças, ambas foram capazes de executar a mesma aplicação Node.js e disponibilizá-la através da internet.
+
+8. Tabela comparativa
+Característica	Render	Railway
+Hospedagem em nuvem	Sim	Sim
+Suporte a Node.js	Sim	Sim
+Suporte ao Express	Sim	Sim
+Integração com GitHub	Sim	Sim
+Deploy automático	Sim	Sim
+Variáveis de ambiente	Sim	Sim
+Porta dinâmica	Sim	Sim
+URL pública	Sim	Sim
+Logs da aplicação	Sim	Sim
+Aplicações web	Sim	Sim
+Facilidade de utilização	Alta	Alta
+Adequado para projetos acadêmicos	Sim	Sim
+9. Diferenças observadas no servidor
+
+Embora a aplicação seja exatamente a mesma, os dados obtidos através do módulo os podem mudar de acordo com o servidor em que ela está hospedada.
+
+Isso acontece porque funções como:
+
+os.hostname()
+os.platform()
+os.arch()
+os.release()
+os.totalmem()
+
+
+consultam características do sistema operacional que está executando o processo Node.js.
+
+Consequentemente, o computador local e os servidores cloud podem apresentar diferentes valores de:
+
+Hostname;
+
+Memória disponível;
+
+Arquitetura;
+
+Interfaces de rede;
+
+Kernel;
+
+Sistema operacional;
+
+Processadores;
+
+Uptime.
+
+Essa experiência demonstra que uma aplicação não depende apenas do código-fonte.
+
+O ambiente de execução também influencia seu comportamento e as informações disponíveis para o programa.
+
+10. Comparação da execução
+
+A aplicação foi executada em três ambientes diferentes:
+
+Ambiente	Localização	Característica
+Computador local	Máquina do desenvolvedor	Ambiente local
+Render	Servidor cloud	Ambiente remoto
+Railway	Servidor cloud	Ambiente remoto
+
+Na execução local, o dashboard apresenta informações do computador utilizado para desenvolvimento.
+
+No Render, as informações correspondem ao servidor utilizado pela plataforma.
+
+No Railway, as informações correspondem ao ambiente disponibilizado pelo Railway.
+
+Portanto, mesmo utilizando o mesmo código, os resultados de algumas funções do módulo os podem ser diferentes.
+
+11. Vantagens das plataformas cloud
+
+A utilização de plataformas como Render e Railway apresenta diversas vantagens.
+
+Entre elas estão:
+
+Disponibilização da aplicação através da internet;
+
+Integração com GitHub;
+
+Facilidade de implantação;
+
+Gerenciamento de variáveis de ambiente;
+
+Execução em servidores remotos;
+
+Possibilidade de atualização do sistema através do repositório;
+
+Acesso aos logs da aplicação;
+
+Redução da necessidade de configurar manualmente um servidor físico;
+
+Facilidade para testar aplicações em ambientes diferentes.
+
+Essas características facilitam o desenvolvimento e a publicação de aplicações web.
+
+12. Vantagens do Render
+
+Entre os pontos positivos observados no Render estão:
+
+Interface simples;
+
+Processo de deploy relativamente direto;
+
+Integração com GitHub;
+
+Configuração de serviços web;
+
+Suporte a aplicações Node.js;
+
+Gerenciamento de variáveis de ambiente;
+
+Disponibilização de URL pública;
+
+Logs para acompanhamento da aplicação.
+
+O Render mostrou-se adequado para hospedar a aplicação desenvolvida nesta atividade.
+
+13. Vantagens do Railway
+
+Entre os pontos positivos observados no Railway estão:
+
+Interface moderna;
+
+Integração com GitHub;
+
+Deploy simplificado;
+
+Suporte a Node.js;
+
+Gerenciamento de variáveis de ambiente;
+
+Visualização dos serviços do projeto;
+
+Logs da aplicação;
+
+Disponibilização de URL pública;
+
+Facilidade para trabalhar com diferentes serviços.
+
+O Railway também se mostrou adequado para hospedar a aplicação desenvolvida.
+
+14. Relação com Sistemas Operacionais
+
+A atividade também permitiu compreender a relação entre software, hardware e sistema operacional.
+
+O Node.js possui módulos que permitem consultar informações do sistema operacional.
+
+Por exemplo:
+
+const os = require("os");
+
+
+A partir desse módulo é possível consultar informações como:
+
+os.hostname()
+os.platform()
+os.arch()
+os.cpus()
+os.totalmem()
+os.freemem()
+os.uptime()
+os.networkInterfaces()
+
+
+Essas funções permitem que a aplicação obtenha informações sobre o ambiente onde está sendo executada.
+
+Quando a aplicação é executada localmente, essas informações pertencem ao computador do desenvolvedor.
+
+Quando a aplicação é executada em uma plataforma cloud, essas informações pertencem ao servidor remoto.
+
+15. Relação com Computação em Nuvem
+
+O deploy realizado no Render e no Railway demonstra alguns conceitos importantes de computação em nuvem.
+
+A aplicação não precisa estar armazenada e executando fisicamente no computador do desenvolvedor para ser acessada.
+
+Depois do deploy, ela passa a executar em uma infraestrutura remota e pode ser acessada através da internet.
+
+Isso está relacionado a conceitos como:
+
+Computação em nuvem;
+
+Servidores remotos;
+
+Virtualização;
+
+Infraestrutura como serviço;
+
+Deploy;
+
+Variáveis de ambiente;
+
+Serviços sob demanda;
+
+Hospedagem de aplicações web.
+
+16. Resultados
+
+Após os testes realizados, foi possível verificar que a mesma aplicação funcionou nos diferentes ambientes analisados.
+
+Ambiente local
+
+O sistema apresentou informações referentes ao computador utilizado durante o desenvolvimento.
+
+Render
+
+O sistema passou a apresentar informações referentes ao ambiente disponibilizado pelo Render.
+
+Railway
+
+O sistema também passou a apresentar informações referentes ao servidor disponibilizado pelo Railway.
+
+Essa diferença comprova que o ambiente de execução influencia diretamente as informações obtidas pela aplicação.
+
+17. Prints da atividade
+17.1 Dashboard local
+
+Inserir print aqui.
+
+[PRINT DO DASHBOARD LOCAL]
+
+17.2 Dashboard no Render
+
+Inserir print aqui.
+
+[PRINT DO DASHBOARD NO RENDER]
+
+17.3 Dashboard no Railway
+
+Inserir print aqui.
+
+[PRINT DO DASHBOARD NO RAILWAY]
+
+17.4 Painel do Render
+
+Inserir print do serviço no painel do Render.
+
+[PRINT DO PAINEL DO RENDER]
+
+17.5 Painel do Railway
+
+Inserir print do serviço no painel do Railway.
+
+[PRINT DO PAINEL DO RAILWAY]
+
+18. Conclusão
+
+A atividade permitiu compreender a relação entre aplicação, sistema operacional e infraestrutura de computação em nuvem.
+
+Durante o desenvolvimento do dashboard, foi possível utilizar recursos do Node.js para obter informações sobre:
+
+CPU;
+
+Memória;
+
+Rede;
+
+Processos;
+
+Arquivos;
+
+Sistema operacional;
+
+Ambiente de execução.
+
+O deploy no Render e no Railway demonstrou que a mesma aplicação pode ser executada em diferentes ambientes de infraestrutura.
+
+Apesar de as plataformas apresentarem interfaces e formas de gerenciamento diferentes, ambas foram capazes de hospedar a aplicação Node.js e disponibilizá-la através da internet.
+
+A principal diferença observada foi que, quando a aplicação é executada localmente, as informações pertencem ao computador do desenvolvedor.
+
+Quando a aplicação é executada na nuvem, as informações pertencem ao servidor remoto fornecido pela plataforma.
+
+Dessa forma, a atividade contribuiu para compreender conceitos de:
+
+Sistemas Operacionais;
+
+Servidores;
+
+Virtualização;
+
+Computação em nuvem;
+
+Variáveis de ambiente;
+
+Node.js;
+
+Express;
+
+Deploy;
+
+Hospedagem de aplicações web.
+
+Conclui-se que Render e Railway são alternativas semelhantes para hospedagem de aplicações Node.js, apresentando diferentes experiências de gerenciamento, mas permitindo alcançar o mesmo objetivo principal: disponibilizar uma aplicação web em um ambiente remoto acessível pela internet.
